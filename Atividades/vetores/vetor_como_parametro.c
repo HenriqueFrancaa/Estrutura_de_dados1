@@ -14,6 +14,11 @@ void print_vetor(int *v, int sz){
     }
 }
 
+void destroy(int **v){
+    free(v);
+    v = NULL;
+}
+
 int main(){
     
 
@@ -34,6 +39,8 @@ int main(){
     puts("##### SOMANDO A ESCALAR ####\n");
     soma_escalar(vh,5);
     print_vetor(vh,5);
-    free(vh);
+    
+    destroy(&vh);
+
     return 0;
 }
