@@ -10,3 +10,4 @@ void Queue_Dequeue(Queue *queue);
 int FindLocation(Queue *queue,int value);
 void OpenEspace(Queue *queue, int index);  
 bool Queue_IsEmpty(Queue *queue);
+void Queue_Print(Queue * queue);

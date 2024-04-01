@@ -4,11 +4,14 @@
 #include "prioridade.h"
 
 int main(){
+    int t,n;
     Queue *queue = Queue_Create();
-    int n = 0;
-    for(int i = 0; i < 10; i++){
+    scanf("%d", &t);
+    for(int i = 0; i < t; i++){
         scanf("%d", &n);
-        Queue_Enqueue(queue, n);        
+        Queue_Enqueue(queue,n);
+        Queue_Print(queue);
+        puts("");
     }
 
     while(Queue_IsEmpty(queue) == 0){
@@ -17,6 +20,5 @@ int main(){
     }
 
     Queue_Destroy(queue);
-
     return 0;
 }

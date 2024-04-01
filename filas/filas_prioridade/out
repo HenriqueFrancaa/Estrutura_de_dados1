@@ -1,0 +1,30 @@
+10 _ _ _ _ _ _ _ _ _ 
+
+2 10 _ _ _ _ _ _ _ _ 
+
+2 3 10 _ _ _ _ _ _ _ 
+
+2 3 5 10 _ _ _ _ _ _ 
+
+2 3 4 5 10 _ _ _ _ _ 
+
+1 2 3 4 5 10 _ _ _ _ 
+
+1 2 3 4 5 7 10 _ _ _ 
+
+1 2 3 4 5 7 8 10 _ _ 
+
+1 2 3 4 5 7 8 9 10 _ 
+
+1 2 3 4 5 7 8 9 9 10 
+
+O primeiro da fila de prioridade : 1
+O primeiro da fila de prioridade : 2
+O primeiro da fila de prioridade : 3
+O primeiro da fila de prioridade : 4
+O primeiro da fila de prioridade : 5
+O primeiro da fila de prioridade : 7
+O primeiro da fila de prioridade : 8
+O primeiro da fila de prioridade : 9
+O primeiro da fila de prioridade : 9
+O primeiro da fila de prioridade : 10

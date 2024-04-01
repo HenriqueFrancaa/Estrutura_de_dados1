@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "prioridade.h"
 
 typedef struct queue
 {
@@ -21,7 +20,6 @@ Queue *Queue_Create(){
     queue->head = 0;
     queue->tail = 0;
     queue->size = 0;
-
     return queue;
 }
 
@@ -30,29 +28,20 @@ void Queue_Destroy(Queue *queue){
     free(queue);
 }
 
-void Queue_Enqueue(Queue *queue, int value){
-    int index = FindLocation(queue, value);
-    OpenEspace(queue, index);
-    *(queue->values + index) = value;
-    queue->tail = (queue->tail + 1)%10;
-    queue->size++;
-}
-
 int FindLocation(Queue * queue, int value){
     int index = 0;
     for(int i = 0; i < queue->size; i++){
         if(value < *(queue->values + i)){
-            index = i;
-            break;
+            return i;
         }
+        index = i+1;
     }
     return index;
 }
-
 void OpenEspace(Queue *queue, int index){
     int *new_values = (int *)malloc(10 * sizeof(int));
     int j = 0;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i <= queue->size; i++){
         if(j == index){
             i++;
         }
@@ -62,6 +51,15 @@ void OpenEspace(Queue *queue, int index){
     free(queue->values);
     queue->values = new_values;
 }
+void Queue_Enqueue(Queue *queue, int value){
+    int index = FindLocation(queue, value);
+    OpenEspace(queue, index);
+    *(queue->values + index) = value;
+    queue->tail = (queue->tail + 1)%10;
+    queue->size++;
+}
+
+
 
 void Queue_Dequeue(Queue *queue){
     int retirado = *(queue->values + queue->head);
@@ -72,4 +70,15 @@ void Queue_Dequeue(Queue *queue){
 
 bool Queue_IsEmpty(Queue *queue){
     return queue->size == 0;
+}
+
+void Queue_Print(Queue *queue){
+    for(int i = 0; i < 10; i++){
+        if(i < queue->size){
+            printf("%d ", *(queue->values + i));
+        }
+        else{
+            printf("_ ");        }
+    }
+    puts("");
 }
