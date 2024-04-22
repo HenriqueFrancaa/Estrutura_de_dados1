@@ -14,9 +14,9 @@ typedef struct queue
 Queue *Queue_Create(){
     Queue *queue = (Queue *)malloc(sizeof(Queue));
     queue->values = (int *)malloc(10 * sizeof(int));
-    for(int i = 0; i < 10; i++){
-        *(queue->values + i) = 0;
-    }
+    //for(int i = 0; i < 10; i++){
+    //    *(queue->values + i) = 0;
+    //}
     queue->head = 0;
     queue->tail = 0;
     queue->size = 0;
