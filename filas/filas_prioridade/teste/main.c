@@ -31,7 +31,7 @@ void Queue_Destroy(Queue *queue){
 int FindLocation(Queue * queue, int value){
     int index = 0;
     for(int i = 0; i < queue->size; i++){
-        if(value < *(queue->values + i)){
+        if(value < *(queue->values + i) || *(queue->values + i) == 0){
             return i;
         }
         index = i+1;
