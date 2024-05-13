@@ -96,3 +96,44 @@ void LinkedList_add_last_fast(LinkedList *L, int value){
     }
     L->size++;
 }
+
+void LinkedList_remove(LinkedList *L, int value){
+    if(!LinkedList_IsEmpty(L)){
+        //caso 1: o elemento está na cabeça da lista;
+        if(L->begin->val == value){
+            SNode *pos = L->begin;
+            if(L->begin == L->end){
+                L->end = NULL;
+            }
+            L->begin = L->begin->next; // agora ele vai estar apontando para o proximo nó
+            free(pos);
+        }
+
+        else{
+            SNode *previous = L->begin;
+            SNode *current = L->begin->next;
+            /*
+            while(current != NULL ){
+                if(current->val == value){
+                    previous->next = current->next;
+                    free(current);
+                    break;
+                }
+                previous = current;
+                current = current->next;
+            }
+            //outra forma
+            */
+            while(current != NULL && current->val != value){
+                previous = current;
+                current = current->next;
+            }
+            if(current != NULL){
+                previous->next = current->next;
+                free(current);
+            }
+        }
+
+        L->size--;
+    }
+}

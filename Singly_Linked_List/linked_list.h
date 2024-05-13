@@ -11,3 +11,4 @@ void LinkedList_print(LinkedList *L);
 void LinkedList_add_last_slow(LinkedList *L, int value); // adicionando elemento no fim da lista de forma lenta
 void LinkedList_add_last_fast(LinkedList *L, int value);// adicionando elemento no fim da lista de forma mais eficiente
 bool LinkedList_IsEmpty(LinkedList *L);
+void LinkedList_remove(LinkedList *L, int value); // vai remover o primeiro nó que tiver com o valor de value
